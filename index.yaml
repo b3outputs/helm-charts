@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  generic-app:
+  - apiVersion: v1
+    created: "2021-07-10T03:08:39.012105263Z"
+    description: Helm chart for deployment generic app on Kubernetes
+    digest: bf9cd056779f6884c44142fc5f5eb3e783bddb490b5d8b7733adc7908f0fc4ae
+    icon: https://raw.githubusercontent.com/b3outputs/helm-charts/main/charts/generic-app/icon.png
+    maintainers:
+    - email: brunogomescorreia@gmail.com
+      name: Bruno Correia
+    name: generic-app
+    urls:
+    - https://github.com/b3outputs/helm-charts/releases/download/generic-app-v0.1.0/generic-app-v0.1.0.tgz
+    version: v0.1.0
+generated: "2021-07-10T03:08:39.012113964Z"
