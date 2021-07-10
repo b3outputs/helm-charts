@@ -1,0 +1,33 @@
+{{ if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    {{- if required "A variable 'sslRedirect' is required!" .Values.sslRedirect }}
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/force-ssl-redirect: {{ .Values.sslRedirect | quote }}
+    {{- else }}
+    nginx.ingress.kubernetes.io/ssl-redirect: {{ .Values.sslRedirect | quote }}
+    {{- end }}
+spec:
+  rules:
+  - host: {{ required "A variable 'hostName' is required!" .Values.hostName }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Release.Name }}
+          servicePort: 80
+  {{- if .Values.sslRedirect }}
+  tls:
+  - secretName: {{ .Release.Name }}
+    hosts:
+    - {{ .Values.hostName }}
+  {{- end }}
+{{ end }}
+
