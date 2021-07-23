@@ -21,7 +21,7 @@ deployment:
 
 # container
 image:
-  repository: null
+  repository: registry.hub.docker.com
   name: containous/whoami
   tag: latest
   pullPolicy: Always

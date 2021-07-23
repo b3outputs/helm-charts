@@ -25,11 +25,7 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.image.repository }}
           image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
-          {{- else }}
-          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
-          {{- end }}
           ports:
           - containerPort: {{ .Values.app.containerPort }}
           resources:
