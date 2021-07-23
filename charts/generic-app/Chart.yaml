@@ -1,13 +1,22 @@
 apiVersion: v1
 description: Helm chart for deployment generic app on Kubernetes
-icon: https://raw.githubusercontent.com/b3outputs/helm-charts/main/charts/generic-app/icon.png
+icon: https://helm.b3o.io/charts/generic-app/icon.png
 maintainers:
-- email: brunogomescorreia@gmail.com
-  name: Bruno Correia
+- name: Bruno Correia
+  email: brunogomescorreia@gmail.com
 name: generic-app
 version: v0.1.1
+kubeVersion: ">= 1.14.0-0"
+home: https://helm.b3o.io
 keywords:
   - generic
   - application
 sources:
   - https://github.com/b3outputs/helm-charts
+annotations:
+  artifacthub.io/changes: |
+    - kind: added
+      description: Values validation
+    - kind: changed
+      description: Default values
+  artifacthub.io/containsSecurityUpdates: "true"
