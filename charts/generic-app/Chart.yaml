@@ -5,7 +5,7 @@ maintainers:
 - name: Bruno Correia
   email: brunogomescorreia@gmail.com
 name: generic-app
-version: v0.1.1
+version: v0.1.2
 kubeVersion: ">= 1.14.0-0"
 home: https://helm.b3o.io
 keywords:
