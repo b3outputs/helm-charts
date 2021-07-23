@@ -5,4 +5,9 @@ maintainers:
 - email: brunogomescorreia@gmail.com
   name: Bruno Correia
 name: generic-app
-version: v0.1.0
+version: v0.1.1
+keywords:
+  - generic
+  - application
+sources:
+  - https://github.com/b3outputs/helm-charts
