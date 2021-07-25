@@ -17,3 +17,5 @@ annotations:
   artifacthub.io/changes: |
     - kind: added
       description: Documentation detail
+    - kind: fixed
+      description: Variables in ingress file
