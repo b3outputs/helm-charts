@@ -14,8 +14,6 @@ metadata:
     cert-manager.io/cluster-issuer: {{ .Values.ingress.certManager.clusterIssuerName }}
       {{- end }}
     nginx.ingress.kubernetes.io/force-ssl-redirect: {{ .Values.ingress.sslRedirect | quote }}
-    {{- else }}
-    nginx.ingress.kubernetes.io/ssl-redirect: {{ .Values.ingress.sslRedirect | quote }}
     {{- end }}
 spec:
   rules:
