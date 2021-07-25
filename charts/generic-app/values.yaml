@@ -31,11 +31,15 @@ ingress:
   enabled: false
   hostName: null
   sslRedirect: false
+  nginxController: false
+  certManager:
+    enabled: false
+    clusterIssuerName: letsecnrypt
 
 # env variables
 variables:
-  secret: null
-  nonSecret: null
+  secret: {}
+  nonSecret: {}
 
 # horizontal autoscaler
 hpa:
