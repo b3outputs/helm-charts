@@ -55,8 +55,8 @@ TODO - Add all variables
 | `ingress.nginxController` | If use nginx linke ingress controller | `false` |
 | `ingress.certManager.enabled` | Enable cert-manager annotation | `false` |
 | `ingress.certManager.clusterIssuerName` | Cluster Issuer Name for cert-manager | `letsencrypt` |
-| `variables.secret` | To create SECRET variables on deployment | `{}` |
-| `variables.nonSecret` | To create NON SECRET variables on deployment | `{}` |
+| `variables.secret` | To create **SECRET** variables on deployment | `{}` |
+| `variables.nonSecret` | To create **NON SECRET** variables on deployment | `{}` |
 | `hpa.enabled` | Enable horizontal pod autoscaler | `false` |
 | `hpa.minReplicas` | Minimal replicas in execution | `1` |
 | `hpa.maxReplicas` | Maximum replicas in execution | `2` |
