@@ -6,28 +6,31 @@ metadata:
   labels:
     app: {{ .Release.Name }}
   annotations:
+    {{- if .Values.ingress.nginxController }}
     kubernetes.io/ingress.class: nginx
-    {{- if required "A variable 'sslRedirect' is required!" .Values.sslRedirect }}
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/force-ssl-redirect: {{ .Values.sslRedirect | quote }}
+    {{- end }}
+    {{- if .Values.ingress.sslRedirect }}
+      {{- if .Values.ingress.certManager.enabled }}
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.certManager.clusterIssuerName }}
+      {{- end }}
+    nginx.ingress.kubernetes.io/force-ssl-redirect: {{ .Values.ingress.sslRedirect | quote }}
     {{- else }}
-    nginx.ingress.kubernetes.io/ssl-redirect: {{ .Values.sslRedirect | quote }}
+    nginx.ingress.kubernetes.io/ssl-redirect: {{ .Values.ingress.sslRedirect | quote }}
     {{- end }}
 spec:
   rules:
-  - host: {{ required "A variable 'hostName' is required!" .Values.hostName }}
+  - host: {{ required "A variable 'hostName' is required!" .Values.ingress.hostName }}
     http:
       paths:
       - path: /
         backend:
           serviceName: {{ .Release.Name }}
           servicePort: 80
-  {{- if .Values.sslRedirect }}
+  {{- if .Values.ingress.sslRedirect }}
   tls:
   - secretName: {{ .Release.Name }}
     hosts:
-    - {{ .Values.hostName }}
+    - {{ .Values.ingress.hostName }}
   {{- end }}
 {{ end }}
 
