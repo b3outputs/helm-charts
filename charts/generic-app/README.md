@@ -49,4 +49,15 @@ TODO - Add all variables
 | `image.name` | Name of image | `containous/whoami` |
 | `image.tag` | Tag of image |  `latest` |
 | `image.pullPolicy` | Policy of download of image | `Always` |
-
+| `ingress.enabled` | Enable ingress resource (for nginx ingress controller) | `false` |
+| `ingress.hostName` | Define FQDN access for web application (to configure DNS) | `null`
+| `ingress.sslRedirect` | Enable redirect for ssl (for nginx ingress controller) | `false` |
+| `ingress.nginxController` | If use nginx linke ingress controller | `false` |
+| `ingress.certManager.enabled` | Enable cert-manager annotation | `false` |
+| `ingress.certManager.clusterIssuerName` | Cluster Issuer Name for cert-manager | `letsencrypt` |
+| `variables.secret` | To create SECRET variables on deployment | `{}` |
+| `variables.nonSecret` | To create NON SECRET variables on deployment | `{}` |
+| `hpa.enabled` | Enable horizontal pod autoscaler | `false` |
+| `hpa.minReplicas` | Minimal replicas in execution | `1` |
+| `hpa.maxReplicas` | Maximum replicas in execution | `2` |
+| `hpa.avgCpuUtilization` | Percentage cpu value that will trigger horizontal scaling | `50` |
