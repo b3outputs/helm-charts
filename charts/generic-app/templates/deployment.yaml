@@ -25,16 +25,28 @@ spec:
       containers:
         - name: {{ .Release.Name }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- if .Values.image.repository }}
           image: "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          {{- else }}
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+          {{- end }}
           ports:
           - containerPort: {{ .Values.app.containerPort }}
           resources:
             requests:
+              {{- if .Values.deployment.memoryRequest }}
               memory: "{{ .Values.deployment.memoryRequest }}"
+              {{- end }}
+              {{- if .Values.deployment.cpuRequest }}
               cpu: "{{ .Values.deployment.cpuRequest }}"
+              {{- end }}
             limits:
+              {{- if .Values.deployment.memoryLimit }}
               memory: "{{ .Values.deployment.memoryLimit }}"
+              {{- end }}
+              {{- if .Values.deployment.cpuLimit }}
               cpu: "{{ .Values.deployment.cpuLimit }}"
+              {{- end }}
           {{- if or (.Values.variables.nonSecret) (.Values.variables.secret) }}
           env:
           {{- if .Values.variables.nonSecret }}

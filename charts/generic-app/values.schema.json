@@ -8,10 +8,6 @@
     "image": {
       "type": "object",
       "properties": {
-        "repository": {
-          "type": "string",
-          "pattern": "^[a-z0-9-_.]+$"
-        },
         "name": {
           "type": "string",
           "pattern": "^[a-z0-9-_/]+$"

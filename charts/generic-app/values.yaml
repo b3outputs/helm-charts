@@ -9,10 +9,10 @@ app:
 
 # deployment
 deployment:
-  memoryRequest: "50Mi"
-  cpuRequest: "25m"
-  memoryLimit: "100Mi"
-  cpuLimit: "75m"
+  memoryRequest: null
+  cpuRequest: null
+  memoryLimit: null
+  cpuLimit: null
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ deployment:
 
 # container
 image:
-  repository: registry.hub.docker.com
+  repository: null
   name: containous/whoami
   tag: latest
   pullPolicy: Always

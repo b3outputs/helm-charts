@@ -15,7 +15,10 @@ sources:
   - https://github.com/b3outputs/helm-charts
 annotations:
   artifacthub.io/changes: |
+    - kind: fixed
+      description: deployment adjustments
     - kind: added
       description: Documentation detail
     - kind: fixed
       description: Variables in ingress file
+  artifacthub.io/containsSecurityUpdates: "true"
