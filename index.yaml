@@ -3,6 +3,34 @@ entries:
   generic-app:
   - annotations:
       artifacthub.io/changes: |
+        - kind: fixed
+          description: deployment adjustments
+        - kind: added
+          description: Documentation detail
+        - kind: fixed
+          description: Variables in ingress file
+      artifacthub.io/containsSecurityUpdates: "true"
+    apiVersion: v1
+    created: "2021-08-02T02:21:18.054138045Z"
+    description: Helm chart for deployment generic app on Kubernetes
+    digest: 2dcc15d6c626af2f1832e01a797a083831432c2a53a5647255f6671b57067591
+    home: https://helm.b3o.io
+    icon: https://helm.b3o.io/charts/generic-app/icon.png
+    keywords:
+    - generic
+    - application
+    kubeVersion: '>= 1.14.0-0'
+    maintainers:
+    - email: brunogomescorreia@gmail.com
+      name: Bruno Correia
+    name: generic-app
+    sources:
+    - https://github.com/b3outputs/helm-charts
+    urls:
+    - https://github.com/b3outputs/helm-charts/releases/download/generic-app-v0.1.4/generic-app-v0.1.4.tgz
+    version: v0.1.4
+  - annotations:
+      artifacthub.io/changes: |
         - kind: added
           description: Values validation
         - kind: changed
@@ -82,4 +110,4 @@ entries:
     urls:
     - https://github.com/b3outputs/helm-charts/releases/download/generic-app-v0.1.0/generic-app-v0.1.0.tgz
     version: v0.1.0
-generated: "2021-07-23T06:26:39.655826504Z"
+generated: "2021-08-02T02:21:18.054166546Z"
