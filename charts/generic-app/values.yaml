@@ -21,7 +21,10 @@ deployment:
 
 # container
 image:
-  repository: null
+  repository:
+    name: null
+    isPrivate: false
+    secretName: null
   name: containous/whoami
   tag: latest
   pullPolicy: Always
