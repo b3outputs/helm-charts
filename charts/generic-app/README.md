@@ -155,7 +155,9 @@ helm show values b3o/generic-app
 | `strategy.type` | Specifies the strategy used to replace old Pods by new ones | `RollingUpdate` |
 | `strategy.rollingUpdate.maxUnavailable` | Deployment ensures that only a certain number of Pods are down while they are being updated. By default, it ensures that at least 75% of the desired number of Pods are up (25% max unavailable) | `25%` |
 | `strategy.rollingUpdate.maxSurge` | Deployment also ensures that only a certain number of Pods are created above the desired number of Pods. By default, it ensures that at most 125% of the desired number of Pods are up (25% max surge). | `25%` |
-| `image.repository` | Repository of image | `null` |
+| `image.repository.name` | Repository of image | `null` |
+| `image.repository.isPrivate` | If repository is private | `false` |
+| `image.repository.secretName` | If `image.repository.isPrivate` is `true` to define secret name with auth for repo | `null` |
 | `image.name` | Name of image | `containous/whoami` |
 | `image.tag` | Tag of image |  `latest` |
 | `image.pullPolicy` | Policy of download of image | `Always` |
