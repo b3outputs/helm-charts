@@ -6,7 +6,7 @@ maintainers:
   email: brunogomescorreia@gmail.com
 name: generic-app
 version: v0.1.5
-kubeVersion: ">= 1.19.0-0"
+kubeVersion: ">= 1.18.0-0"
 home: https://helm.b3o.io
 keywords:
   - generic
