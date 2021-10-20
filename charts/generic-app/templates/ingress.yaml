@@ -21,9 +21,12 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
-          serviceName: {{ .Release.Name }}
-          servicePort: 80
+          service:
+            name: {{ .Release.Name }}
+            port:
+              number: 80
   {{- if .Values.ingress.sslRedirect }}
   tls:
   - secretName: {{ .Release.Name }}
