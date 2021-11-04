@@ -14,7 +14,7 @@
         },
         "tag": {
           "type": "string",
-          "pattern": "^[a-z0-9-_]+$"
+          "pattern": "^[\\w.-]+$"
         },
         "pullPolicy": {
           "type": "string",
