@@ -4,7 +4,7 @@ apiVersion: apps/v1
 metadata:
   name: {{ .Release.Name }}
   labels:
-    app: {{ .Release.Name }} 
+    app: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.minReplicas }}
   selector:
@@ -74,18 +74,18 @@ spec:
           startupProbe:
             httpGet:
               path: {{ .httpGet.path }}
-              port: {{ $dot.Values.containerPort }}
+              port: {{ $dot.Values.app.containerPort }}
             periodSeconds: {{ .periodSeconds }}
             failureThreshold: {{ .failureThreshold }}
             timeoutSeconds: {{ .timeoutSeconds }}
-          {{- end }}  
+          {{- end }}
           {{- end }}
           {{- if .Values.readinessProbe.enabled }}
           {{- with .Values.readinessProbe }}
           readinessProbe:
             httpGet:
               path: {{ .httpGet.path }}
-              port: {{ $dot.Values.containerPort }}
+              port: {{ $dot.Values.app.containerPort }}
             initialDelaySeconds: {{ .initialDelaySeconds }}
             periodSeconds: {{ .periodSeconds }}
             failureThreshold: {{ .failureThreshold }}
@@ -97,7 +97,7 @@ spec:
           livenessProbe:
             httpGet:
               path: {{ .httpGet.path }}
-              port: {{ $dot.Values.containerPort }}
+              port: {{ $dot.Values.app.containerPort }}
             initialDelaySeconds: {{ .initialDelaySeconds }}
             periodSeconds: {{ .periodSeconds }}
             failureThreshold: {{ .failureThreshold }}
